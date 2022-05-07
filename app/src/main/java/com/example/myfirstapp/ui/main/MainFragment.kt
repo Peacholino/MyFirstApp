@@ -25,15 +25,21 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
+    var currentButtonStateClicked = false
     override fun onViewCreated (view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val textfield = view.findViewById<TextView>(R.id.message)           // Adds a value to call the text field
         textfield.text = "My own Text"                                     // Changes the text of the text field
 
         val myButton = view.findViewById<Button>(R.id.btn_first)          // Adds Button as value
-        myButton.text = "Click me!"                                       // Adds text to button
         myButton.setOnClickListener {
-            myButton.text = "I was clicked"                              // Makes it so the text changes when clicked
+            if (currentButtonStateClicked) {                              // if Button is not clicked it displays "Click me"
+                myButton.text = "Click me!"
+                currentButtonStateClicked = false
+            } else {
+                myButton.text = "I was clicked!"                          // if it is clicked it displays "I was clicked"
+                currentButtonStateClicked = true
+            }
         }
 }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
