@@ -23,5 +23,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="No Numer Yet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tv_randomNumber"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toTopOf="@+id/message"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

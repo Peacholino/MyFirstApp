@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.myfirstapp.R
+import java.util.Random
 
 class MainFragment : Fragment() {
 
@@ -43,6 +44,10 @@ class MainFragment : Fragment() {
             }
             counter++                                                     // Increases the value of the counter after the button is clicked
             textfield.text = counter.toString()                           // Makes the textfield display the new counter-value
+
+            val randomText = view.findViewById<TextView>(R.id.tv_randomNumber)    //calls the textfield
+            val nextNumber = kotlin.random.Random.nextInt(6) + 1               //value that generates a random Int
+            randomText.text = nextNumber.toString()                               //makes the textfield display the random number when the button is clicked
         }
 }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
