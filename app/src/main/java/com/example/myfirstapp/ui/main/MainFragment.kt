@@ -26,10 +26,11 @@ class MainFragment : Fragment() {
     }
 
     var currentButtonStateClicked = false
+    var counter = 0
     override fun onViewCreated (view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val textfield = view.findViewById<TextView>(R.id.message)           // Adds a value to call the text field
-        textfield.text = "My own Text"                                     // Changes the text of the text field
+        textfield.text = counter.toString()                                // Makes the textfield display the counter
 
         val myButton = view.findViewById<Button>(R.id.btn_first)          // Adds Button as value
         myButton.setOnClickListener {
@@ -40,6 +41,8 @@ class MainFragment : Fragment() {
                 myButton.text = "I was clicked!"                          // if it is clicked it displays "I was clicked"
                 currentButtonStateClicked = true
             }
+            counter++                                                     // Increases the value of the counter after the button is clicked
+            textfield.text = counter.toString()                           // Makes the textfield display the new counter-value
         }
 }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
