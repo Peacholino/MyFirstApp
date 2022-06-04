@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.myfirstapp.R
+import com.example.myfirstapp.models.Dice
 import java.util.Random
 
 class MainFragment : Fragment() {
@@ -28,6 +29,8 @@ class MainFragment : Fragment() {
 
     var currentButtonStateClicked = false
     var counter = 0
+    val numberList = mutableListOf<Int>()                                          //empty list
+    val myDice = Dice()                                                            // creates a Dice
     override fun onViewCreated (view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val textfield = view.findViewById<TextView>(R.id.message)           // Adds a value to call the text field
@@ -46,8 +49,9 @@ class MainFragment : Fragment() {
             textfield.text = counter.toString()                           // Makes the textfield display the new counter-value
 
             val randomText = view.findViewById<TextView>(R.id.tv_randomNumber)    //calls the textfield
-            val nextNumber = kotlin.random.Random.nextInt(6) + 1               //value that generates a random Int
-            randomText.text = nextNumber.toString()                               //makes the textfield display the random number when the button is clicked
+
+            numberList.add(myDice.roll())                                              // rolls the dice and adds the newly generated number to the number list
+            randomText.text = numberList.toString()                               //makes the textfield display the number list when the button is clicked
         }
 }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
