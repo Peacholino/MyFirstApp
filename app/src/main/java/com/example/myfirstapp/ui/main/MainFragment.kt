@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.myfirstapp.R
+import com.example.myfirstapp.models.Coin
 import com.example.myfirstapp.models.Dice
 import java.util.Random
 
@@ -30,7 +31,7 @@ class MainFragment : Fragment() {
     var currentButtonStateClicked = false
     var counter = 0
     val numberList = mutableListOf<Int>()                                          //empty list
-    val myDice = Dice()                                                            // creates a Dice
+    val myDice = Coin()                                                            // creates a Dice
     override fun onViewCreated (view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val textfield = view.findViewById<TextView>(R.id.message)           // Adds a value to call the text field
